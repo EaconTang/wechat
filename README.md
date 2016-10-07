@@ -1,3 +1,8 @@
+# 我的微信公众号
+公众号ID: Eacon
+
+# 微信文档
+----
 ## 公众平台接口域名
 1. 通用域名(api.weixin.qq.com)
 2. 上海域名(sh.api.weixin.qq.com)
