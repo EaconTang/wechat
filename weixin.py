@@ -32,21 +32,31 @@ def wechat_auth():
         # only deal with text msg
         ret_content = ''
         if msg_type != 'text':
-            ret_content = 'ERROR: Unsupprt message type! It should be text.'
+            ret_content = u'不好意思, 我只看得懂文字...'
         else:
             content = xml.find('Content').text
-            if content in ('help', u'帮助', u'说明'):
-                ret_content = """
-                输入"笑话", "joke"试试看吧?
-                """.strip()
-            elif content in (u'笑话',):
-                ret_content = get_joke()
-            elif content in ('joke',):
-                ret_content = get_dark_humor_joke()
-            else:
-                # just reverse
-                ret_content = reverse(content)
-
+            for key_words, act in policy():
+                if content in key_words:
+                    if isinstance(act, unicode):
+                        ret_content = act.encode('utf8')
+                    elif callable(act):
+                        ret_content = act()
+                    else:
+                        ret_content = str(act)
+            if not ret_content:
+                ret_content = get_tuling_reply(content)
+                # if content in ('help', u'帮助', u'说明'):
+                #     ret_content = """
+                #     输入"笑话", "joke"试试看吧?
+                #     """.strip()
+                # elif content in (u'笑话',):
+                #     ret_content = get_joke()
+                # elif content in ('joke',):
+                #     ret_content = get_dark_humor_joke()
+                # else:
+                #     # just reverse
+                #     # ret_content = reverse(content)
+                #     ret_content = get_tuling_reply(content)
         return reply_text(to_user_name=from_user_name,
                           from_user_name=to_user_name,
                           create_time=int(time.time()),

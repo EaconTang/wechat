@@ -62,7 +62,7 @@ def upload_media_tmp(access_token, type, media_data):
     ret_dict = json.loads(requests.post(url, data=media_data).text)
     if 'errcode' in ret_dict:
         raise Exception('Error while trying to upload media temporary: ', ret_dict.get('errcode'), ret_dict.get('errmsg'))
-    print 'Upload media temparary success!'
+    print 'Upload temporary media success!'
     return ret_dict.get('media_id')
 
 if __name__ == '__main__':
