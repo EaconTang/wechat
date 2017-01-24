@@ -1,11 +1,13 @@
 # coding:utf-8
 import time
+import os
 import xml.etree.ElementTree as ET
 
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 from utils import *
 
+BASE_DIR = os.path.join(os.path.dirname(__file__))
 app = Flask(__name__)
 
 
@@ -62,6 +64,11 @@ def wechat_auth():
                           create_time=int(time.time()),
                           msg_type='text',
                           content=ret_content)
+
+
+@app.route('/qrcode')
+def get_qrcode():
+    return app.send_static_file('qrcode.html')
 
 
 if __name__ == "__main__":
