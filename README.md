@@ -1,7 +1,5 @@
 # 我的微信公众号
 
-公众号ID: Eacon  
-
 ------------
 ### 欢迎信息
 你好, 欢迎关注Eacon的个人公众号。  
@@ -29,15 +27,6 @@
 40004	当天请求次数已使用完  
 40007	数据格式异常  
 
-
-# 微信文档
-----
-## 公众平台接口域名
-1. 通用域名(api.weixin.qq.com)
-2. 上海域名(sh.api.weixin.qq.com)
-3. 深圳域名(sz.api.weixin.qq.com)
-4. 香港域名(hk.api.weixin.qq.com)
-
 ## 全局返回码 
 -1
 系统繁忙，此时请开发者稍候再试  
@@ -45,3 +34,8 @@
 请求成功  
 40001
 获取access_token时AppSecret错误，或者access_token无效。请开发者认真比对AppSecret的正确性，或查看是否正在为恰当的公众号调用接口  
+
+## 关注公众号
+公众号ID: Eacon 
+
+![](http://qn.tangyingkang.com/image/weixin/qrcode_20170124.jpg) 
