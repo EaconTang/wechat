@@ -6,6 +6,7 @@ import xml.etree.ElementTree as ET
 from flask import Flask, request, render_template
 
 from utils import *
+from config import TOKEN
 
 BASE_DIR = os.path.join(os.path.dirname(__file__))
 app = Flask(__name__)
@@ -15,7 +16,7 @@ app = Flask(__name__)
 def wechat_auth():
     if request.method == 'GET':
         d = request.args
-        return auth_weixin(token='nhd798xc58655bv878cv78dklkmn',
+        return auth_weixin(token=TOKEN,
                            signature=d.get('signature'),
                            timestamp=d.get('timestamp'),
                            nonce=d.get('nonce'),
