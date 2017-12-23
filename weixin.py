@@ -4,6 +4,7 @@ import os
 import xml.etree.ElementTree as ET
 
 from flask import Flask, request, render_template
+import itchat
 
 from utils import *
 from config import TOKEN
